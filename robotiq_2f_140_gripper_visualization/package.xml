@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<package format="2">
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>robotiq_2f_140_gripper_visualization</name>
   <version>1.0.0</version>
   <description>Robotiq ARG 2-Finger 140mm model C3 description package</description>
@@ -9,8 +10,14 @@
   <maintainer email="ros@robotiq.com">Jean-Philippe Roberge</maintainer>
   <maintainer email="daniels.ordoez@gmail.com">Daniel Ordonez</maintainer>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <exec_depend>urdf</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 
 </package>

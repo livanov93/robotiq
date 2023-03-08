@@ -1,7 +1,11 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(robotiq_2f_85_gripper_visualization)
-find_package(catkin REQUIRED)
-catkin_package()
 
-install(DIRECTORY meshes DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
-install(DIRECTORY urdf DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+find_package(ament_cmake REQUIRED)
+
+install(
+        DIRECTORY config meshes launch urdf
+        DESTINATION share/${PROJECT_NAME}
+)
+
+ament_package()
