@@ -4,18 +4,35 @@
     <xacro:arg name="use_fake_hardware" default="true" />
     <xacro:arg name="fake_sensor_commands" default="false" />
     <xacro:arg name="prefix" default="" />
+    <xacro:arg name="sim_ignition" default="false" />
+
 
     <!-- Import macros -->
     <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model_macro.xacro" />
     <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_gripper.ros2_control.xacro" />
 
-<!--    <link name="world" />-->
+    <link name="world" />
+    <joint name="world_to_base" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <parent link="world"/>
+        <child link="$(arg prefix)robotiq_arg2f_base_link"/>
+    </joint>
+
     <xacro:robotiq_arg2f_85 prefix="$(arg prefix)"/>
 
     <xacro:robotiq_sim_gripper_ros2_control name="RobotiqGripperSystem"
                                             prefix="$(arg prefix)"
-                                            sim_ignition="false"
+                                            sim_ignition="$(arg sim_ignition)"
                                             use_fake_hardware="$(arg use_fake_hardware)"
                                             fake_sensor_commands="$(arg fake_sensor_commands)" />
+
+
+    <xacro:if value="$(arg sim_ignition)">
+        <gazebo>
+            <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+                <parameters>$(find robotiq_bringup)/config/robotiq_2f_85_controllers.yaml</parameters>
+            </plugin>
+        </gazebo>
+    </xacro:if>
 
 </robot>

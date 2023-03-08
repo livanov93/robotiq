@@ -72,15 +72,10 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "mock_sensor_commands",
+            "fake_sensor_commands",
             default_value="false",
             description="Enable fake command interfaces for sensors used for simple simulations. \
             Used only if 'use_fake_hardware' parameter is true.",
-        )
-    )
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "slowdown", default_value="3.0", description="Slowdown factor of the RRbot."
         )
     )
     declared_arguments.append(
@@ -105,8 +100,7 @@ def generate_launch_description():
     description_file = LaunchConfiguration("description_file")
     prefix = LaunchConfiguration("prefix")
     use_fake_hardware = LaunchConfiguration("use_fake_hardware")
-    mock_sensor_commands = LaunchConfiguration("mock_sensor_commands")
-    slowdown = LaunchConfiguration("slowdown")
+    fake_sensor_commands = LaunchConfiguration("fake_sensor_commands")
     robot_controller = LaunchConfiguration("robot_controller")
     start_rviz = LaunchConfiguration("start_rviz")
 
@@ -118,18 +112,16 @@ def generate_launch_description():
             PathJoinSubstitution(
                 [FindPackageShare(description_package), "urdf", description_file]
             ),
-            # " ",
-            # "prefix:=",
-            # prefix,
-            # " ",
-            # "use_fake_hardware:=",
-            # use_fake_hardware,
-            # " ",
-            # "mock_sensor_commands:=",
-            # mock_sensor_commands,
-            # " ",
-            # "slowdown:=",
-            # slowdown,
+            " ",
+            "prefix:=",
+            prefix,
+            " ",
+            "use_fake_hardware:=",
+            use_fake_hardware,
+            " ",
+            "fake_sensor_commands:=",
+            fake_sensor_commands,
+            " ",
         ]
     )
     robot_description = {"robot_description": robot_description_content}
