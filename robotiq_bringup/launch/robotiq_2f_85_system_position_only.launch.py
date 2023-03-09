@@ -47,7 +47,7 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "robot_controller",
+            "gripper_controller",
             default_value="robotiq_gripper_controller",
             description="Robot controller to start.",
         )
@@ -64,7 +64,7 @@ def generate_launch_description():
     prefix = LaunchConfiguration("prefix")
     use_fake_hardware = LaunchConfiguration("use_fake_hardware")
     fake_sensor_commands = LaunchConfiguration("fake_sensor_commands")
-    robot_controller = LaunchConfiguration("robot_controller")
+    gripper_controller = LaunchConfiguration("gripper_controller")
     start_rviz = LaunchConfiguration("start_rviz")
 
     base_launch = IncludeLaunchDescription(
@@ -75,7 +75,7 @@ def generate_launch_description():
             "prefix": prefix,
             "use_fake_hardware": use_fake_hardware,
             "fake_sensor_commands": fake_sensor_commands,
-            "robot_controller": robot_controller,
+            "gripper_controller": gripper_controller,
             "start_rviz": start_rviz,
         }.items(),
     )

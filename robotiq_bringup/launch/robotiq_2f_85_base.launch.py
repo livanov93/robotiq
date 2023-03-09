@@ -101,7 +101,7 @@ def generate_launch_description():
     prefix = LaunchConfiguration("prefix")
     use_fake_hardware = LaunchConfiguration("use_fake_hardware")
     fake_sensor_commands = LaunchConfiguration("fake_sensor_commands")
-    robot_controller = LaunchConfiguration("robot_controller")
+    gripper_controller = LaunchConfiguration("gripper_controller")
     start_rviz = LaunchConfiguration("start_rviz")
 
     # Get URDF via xacro
@@ -167,7 +167,7 @@ def generate_launch_description():
     gripper_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=[robot_controller, "-c", "/controller_manager"],
+        arguments=[gripper_controller, "-c", "/controller_manager"],
     )
 
     # Delay rviz start after `joint_state_broadcaster`
@@ -185,10 +185,6 @@ def generate_launch_description():
             on_exit=[gripper_controller_spawner],
         )
     )
-    # joint_state_publisher_node = Node(
-    #     package="joint_state_publisher_gui",
-    #     executable="joint_state_publisher_gui",
-    # )
 
     nodes = [
         control_node,
