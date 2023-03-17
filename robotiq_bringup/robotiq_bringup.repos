@@ -1,0 +1,17 @@
+repositories:
+
+  ros_gz:
+    type: git
+    url: https://github.com/sea-bass/ros_gz.git
+    version: c44f587
+
+  gz_ros2_control:
+    type: git
+    url: https://github.com/livanov93/ign_ros2_control.git
+    version: pid-with-force-output
+
+  ros2_controllers:
+    type: git
+    url: https://github.com/eholum/ros2_controllers.git
+    version: 61fa02a
+

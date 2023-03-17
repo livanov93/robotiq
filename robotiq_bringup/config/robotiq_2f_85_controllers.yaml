@@ -17,7 +17,6 @@ robotiq_gripper_controller:
       - finger_joint
     interface_name: position
 
-
 robotiq_gripper_action_controller:
   ros__parameters:
     default: true
