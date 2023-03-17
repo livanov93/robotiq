@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="robotiq_gripper">
+  <xacro:macro name="robotiq_gripper" params="
+        name
+        prefix
+        parent
+        *origin
+        sim_ignition:=false
+        use_fake_hardware:=false
+        fake_sensor_commands:=false">
+
+    <!-- Import macros -->
+    <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model_macro.xacro" />
+    <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_gripper.ros2_control.xacro" />
+
+    <joint name="${prefix}robotiq_85_base_joint" type="fixed">
+      <parent link="${parent}" />
+      <child link="${prefix}robotiq_arg2f_base_link" />
+      <xacro:insert_block name="origin" />
+    </joint>
+
+    <xacro:robotiq_arg2f_85 prefix="$(arg prefix)"/>
+
+    <xacro:robotiq_sim_gripper_ros2_control name="RobotiqGripperSystem"
+                                            prefix="${prefix}"
+                                            sim_ignition="${sim_ignition}"
+                                            use_fake_hardware="${use_fake_hardware}"
+                                            fake_sensor_commands="${fake_sensor_commands}" />
+
+
+  </xacro:macro>
+</robot>

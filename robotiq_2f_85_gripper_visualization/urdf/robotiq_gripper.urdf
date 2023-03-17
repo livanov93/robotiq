@@ -91,6 +91,10 @@
       </geometry>
     </collision>
   </link>
+<!--  <gazebo reference="robotiq_arg2f_base_link">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <link name="left_outer_knuckle">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.000200000000003065 0.0199435877845359 0.0292245259211331"/>
@@ -113,6 +117,10 @@
       </geometry>
     </collision>
   </link>
+<!--  <gazebo reference="left_outer_knuckle">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <link name="left_outer_finger">
     <inertial>
       <origin rpy="0 0 0" xyz="0.00030115855001899 0.0373907951953854 -0.0208027427000385"/>
@@ -135,6 +143,10 @@
       </geometry>
     </collision>
   </link>
+<!--  <gazebo reference="left_outer_fingere">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <link name="left_inner_finger">
     <inertial>
       <origin rpy="0 0 0" xyz="0.000299999999999317 0.0160078233491243 -0.0136945669206257"/>
@@ -157,6 +169,10 @@
       </geometry>
     </collision>
   </link>
+<!--  <gazebo reference="left_inner_finger">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <link name="left_inner_finger_pad">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -177,6 +193,10 @@
       </material>
     </collision>
   </link>
+<!--  <gazebo reference="left_inner_finger_pad">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <link name="left_inner_knuckle">
     <inertial>
       <origin rpy="0 0 0" xyz="0.000123011831763771 0.0507850843201817 0.00103968640075166"/>
@@ -199,6 +219,10 @@
       </geometry>
     </collision>
   </link>
+<!--  <gazebo reference="left_inner_knuckle">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <link name="right_outer_knuckle">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.000200000000003065 0.0199435877845359 0.0292245259211331"/>
@@ -221,6 +245,10 @@
       </geometry>
     </collision>
   </link>
+<!--  <gazebo reference="right_outer_knuckle">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <link name="right_outer_finger">
     <inertial>
       <origin rpy="0 0 0" xyz="0.00030115855001899 0.0373907951953854 -0.0208027427000385"/>
@@ -243,6 +271,10 @@
       </geometry>
     </collision>
   </link>
+<!--  <gazebo reference="right_outer_finger">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <link name="right_inner_finger">
     <inertial>
       <origin rpy="0 0 0" xyz="0.000299999999999317 0.0160078233491243 -0.0136945669206257"/>
@@ -265,6 +297,10 @@
       </geometry>
     </collision>
   </link>
+  <gazebo reference="right_inner_finger">
+    <mu1 value="0.85"/>
+    <mu2 value="0.85"/>
+  </gazebo>
   <link name="right_inner_finger_pad">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -285,6 +321,10 @@
       </material>
     </collision>
   </link>
+<!--  <gazebo reference="right_inner_finger_pad">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <link name="right_inner_knuckle">
     <inertial>
       <origin rpy="0 0 0" xyz="0.000123011831763771 0.0507850843201817 0.00103968640075166"/>
@@ -307,6 +347,10 @@
       </geometry>
     </collision>
   </link>
+<!--  <gazebo reference="right_inner_knuckle">-->
+<!--    <mu1 value="0.85"/>-->
+<!--    <mu2 value="0.85"/>-->
+<!--  </gazebo>-->
   <joint name="finger_joint" type="revolute">
     <origin rpy="0 0 3.141592653589793" xyz="0 -0.0306011 0.054904"/>
     <parent link="robotiq_arg2f_base_link"/>
@@ -642,4 +686,5 @@
     <!--                <cmd_min>-1000</cmd_min>-->
     <!--            </plugin>-->
   </gazebo>
+
 </robot>

@@ -191,6 +191,15 @@ ign service -s /world/empty/create \
 <!--                        </friction>-->
 <!--                    </surface>-->
 
+                    <surface>
+                        <friction>
+                            <ode>
+                                <mu>2.0</mu>
+                                <mu2>2.0</mu2>
+                            </ode>
+                        </friction>
+                    </surface>
+
                 </collision>
 
                 <visual name="cube_visual">
