@@ -59,6 +59,10 @@ ros2 launch robotiq_bringup robotiq_2f_85_gz.launch.py robot_controller:=robotiq
 ###### Send commands via `robotiq_gripper_action_controller`
 
 ```
-
 ros2 action send_goal /robotiq_gripper_action_controller/gripper_cmd control_msgs/action/GripperCommand "{command: {position: 0.5, max_effort: 10.0}}"
+```
+
+User linear vertical axis to simulate aggressive approach/retreat movement while picking the cube:
+```
+ros2 run robotiq_bringup ignition_movement.sh
 ```

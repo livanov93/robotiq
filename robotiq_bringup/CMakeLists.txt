@@ -13,6 +13,10 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+install(PROGRAMS scripts/ignition_movement.sh
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/${PROJECT_NAME}.dsv.in")
 
 ament_package()
