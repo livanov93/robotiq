@@ -5,7 +5,7 @@ This package contains the URDF files describing the 140mm stroke gripper from ro
 To test the gripper URDF description type 
 
 ```
-roslaunch robotiq_2f_140_gripper_visualization test_2f_140_model.launch 
+ros2 launch robotiq_2f_140_gripper_visualization view_robot.launch 
 ```
 ## Robot Visual
 ![140](https://user-images.githubusercontent.com/8356912/49428409-463f8580-f7a6-11e8-8278-5246acdc5c14.png)

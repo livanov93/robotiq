@@ -24,21 +24,23 @@
                     <state_interface name="position">
                         <param name="initial_value">0.0</param>
                     </state_interface>
-                    <param name="p_pos">10.0</param>
+                    <!-- needed for gripper controller max effort -->
+                    <state_interface name="effort" />
+                    <param name="p_pos">20.0</param>
                     <param name="i_pos">0.0</param>
-                    <param name="d_pos">0.0</param>
-                    <param name="iMax_pos">0.25</param>
-                    <param name="iMin_pos">-0.25</param>
-                    <param name="cmdMax_pos">0.5</param>
-                    <param name="cmdMin_pos">-0.5</param>
+                    <param name="d_pos">0.01</param>
+                    <param name="iMax_pos">0.0</param>
+                    <param name="iMin_pos">0.0</param>
+                    <param name="cmdMax_pos">2.0</param>
+                    <param name="cmdMin_pos">-2.0</param>
                     <param name="cmdOffset_pos">0.0</param>
-                    <param name="p_vel">100.0</param>
-                    <param name="i_vel">100.0</param>
+                    <param name="p_vel">2.5</param>
+                    <param name="i_vel">0.1</param>
                     <param name="d_vel">0.0</param>
-                    <param name="iMax_vel">0.0</param>
-                    <param name="iMin_vel">-0.0</param>
-                    <param name="cmdMax_vel">50.0</param>
-                    <param name="cmdMin_vel">-50.0</param>
+                    <param name="iMax_vel">1.0</param>
+                    <param name="iMin_vel">-1.0</param>
+                    <param name="cmdMax_vel">1000.0</param>
+                    <param name="cmdMin_vel">-1000.0</param>
                     <param name="cmdOffset_vel">0.0</param>
                 </xacro:if>
                 <xacro:unless value="${sim_ignition}">
@@ -47,141 +49,6 @@
                 </xacro:unless>
                 <command_interface name="position" />
                 <state_interface name="velocity"/>
-            </joint>
-            <joint name="${prefix}right_outer_knuckle_joint">
-                <param name="mimic">${prefix}finger_joint</param>
-                <param name="multiplier">1</param>
-                <xacro:unless value="${sim_ignition}">
-                    <command_interface name="position"/>
-                    <state_interface name="position"/>
-                    <state_interface name="velocity"/>
-                </xacro:unless>
-                <xacro:if value="${sim_ignition}">
-                  <param name="p_pos">100.0</param>
-                  <param name="i_pos">0.0</param>
-                  <param name="d_pos">0.0</param>
-                  <param name="iMax_pos">0.25</param>
-                  <param name="iMin_pos">-0.25</param>
-                  <param name="cmdMax_pos">0.5</param>
-                  <param name="cmdMin_pos">-0.5</param>
-                  <param name="cmdOffset_pos">0.0</param>
-                  <param name="p_vel">100.0</param>
-                  <param name="i_vel">1.0</param>
-                  <param name="d_vel">0.0</param>
-                  <param name="iMax_vel">25.0</param>
-                  <param name="iMin_vel">-25.0</param>
-                  <param name="cmdMax_vel">50.0</param>
-                  <param name="cmdMin_vel">-50.0</param>
-                  <param name="cmdOffset_vel">0.0</param>
-                </xacro:if>
-            </joint>
-            <joint name="${prefix}left_inner_knuckle_joint">
-                <param name="mimic">${prefix}finger_joint</param>
-                <param name="multiplier">1</param>
-                <xacro:unless value="${sim_ignition}">
-                    <command_interface name="position"/>
-                    <state_interface name="position"/>
-                    <state_interface name="velocity"/>
-                </xacro:unless>
-                <xacro:if value="${sim_ignition}">
-                  <param name="p_pos">100.0</param>
-                  <param name="i_pos">0.0</param>
-                  <param name="d_pos">0.0</param>
-                  <param name="iMax_pos">0.25</param>
-                  <param name="iMin_pos">-0.25</param>
-                  <param name="cmdMax_pos">0.5</param>
-                  <param name="cmdMin_pos">-0.5</param>
-                  <param name="cmdOffset_pos">0.0</param>
-                  <param name="p_vel">100.0</param>
-                  <param name="i_vel">1.0</param>
-                  <param name="d_vel">0.0</param>
-                  <param name="iMax_vel">0.0</param>
-                  <param name="iMin_vel">-0.0</param>
-                  <param name="cmdMax_vel">50.0</param>
-                  <param name="cmdMin_vel">-50.0</param>
-                  <param name="cmdOffset_vel">0.0</param>
-                </xacro:if>
-            </joint>
-            <joint name="${prefix}right_inner_knuckle_joint">
-                <param name="mimic">${prefix}finger_joint</param>
-                <param name="multiplier">1</param>
-                <xacro:unless value="${sim_ignition}">
-                    <command_interface name="position"/>
-                    <state_interface name="position"/>
-                    <state_interface name="velocity"/>
-                </xacro:unless>
-                <xacro:if value="${sim_ignition}">
-                  <param name="p_pos">100.0</param>
-                  <param name="i_pos">0.0</param>
-                  <param name="d_pos">0.0</param>
-                  <param name="iMax_pos">0.25</param>
-                  <param name="iMin_pos">-0.25</param>
-                  <param name="cmdMax_pos">0.5</param>
-                  <param name="cmdMin_pos">-0.5</param>
-                  <param name="cmdOffset_pos">0.0</param>
-                  <param name="p_vel">100.0</param>
-                  <param name="i_vel">1.0</param>
-                  <param name="d_vel">0.0</param>
-                  <param name="iMax_vel">25.0</param>
-                  <param name="iMin_vel">-25.0</param>
-                  <param name="cmdMax_vel">50.0</param>
-                  <param name="cmdMin_vel">-50.0</param>
-                  <param name="cmdOffset_vel">0.0</param>
-                </xacro:if>
-            </joint>
-            <joint name="${prefix}left_inner_finger_joint">
-                <param name="mimic">${prefix}finger_joint</param>
-                <param name="multiplier">-1</param>
-                <xacro:unless value="${sim_ignition}">
-                    <command_interface name="position"/>
-                    <state_interface name="position"/>
-                    <state_interface name="velocity"/>
-                </xacro:unless>
-                <xacro:if value="${sim_ignition}">
-                  <param name="p_pos">10.0</param>
-                  <param name="i_pos">0.0</param>
-                  <param name="d_pos">0.0</param>
-                  <param name="iMax_pos">0.25</param>
-                  <param name="iMin_pos">-0.25</param>
-                  <param name="cmdMax_pos">0.5</param>
-                  <param name="cmdMin_pos">-0.5</param>
-                  <param name="cmdOffset_pos">0.0</param>
-                  <param name="p_vel">100.0</param>
-                  <param name="i_vel">100.0</param>
-                  <param name="d_vel">0.0</param>
-                  <param name="iMax_vel">0.0</param>
-                  <param name="iMin_vel">-0.0</param>
-                  <param name="cmdMax_vel">50.0</param>
-                  <param name="cmdMin_vel">-50.0</param>
-                  <param name="cmdOffset_vel">0.0</param>
-                </xacro:if>
-            </joint>
-            <joint name="${prefix}right_inner_finger_joint">
-                <param name="mimic">${prefix}finger_joint</param>
-                <param name="multiplier">-1</param>
-                <xacro:unless value="${sim_ignition}">
-                    <command_interface name="position"/>
-                    <state_interface name="position"/>
-                    <state_interface name="velocity"/>
-                </xacro:unless>
-                <xacro:if value="${sim_ignition}">
-                  <param name="p_pos">10.0</param>
-                  <param name="i_pos">0.0</param>
-                  <param name="d_pos">0.0</param>
-                  <param name="iMax_pos">0.25</param>
-                  <param name="iMin_pos">-0.25</param>
-                  <param name="cmdMax_pos">0.5</param>
-                  <param name="cmdMin_pos">-0.5</param>
-                  <param name="cmdOffset_pos">0.0</param>
-                  <param name="p_vel">100.0</param>
-                  <param name="i_vel">100.0</param>
-                  <param name="d_vel">0.0</param>
-                  <param name="iMax_vel">25.0</param>
-                  <param name="iMin_vel">-25.0</param>
-                  <param name="cmdMax_vel">50.0</param>
-                  <param name="cmdMin_vel">-50.0</param>
-                  <param name="cmdOffset_vel">0.0</param>
-                </xacro:if>
             </joint>
 
             <!-- Only add this with fake hardware mode -->

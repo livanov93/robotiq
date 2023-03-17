@@ -32,6 +32,117 @@
             <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
                 <parameters>$(find robotiq_bringup)/config/robotiq_2f_85_controllers.yaml</parameters>
             </plugin>
+
+            <plugin filename="mimic-joint-system" name="ign_ros2_control::MimicJointSystem">
+                <joint_name>right_outer_knuckle_joint</joint_name>
+                <mimic_joint_name>finger_joint</mimic_joint_name>
+                <multiplier>1.0</multiplier>
+                <offset>0.0</offset>
+                <joint_index>0</joint_index>
+                <mimic_joint_index>0</mimic_joint_index>
+                <p_gain>100.0</p_gain>
+                <i_gain>0.1</i_gain>
+                <d_gain>0.0</d_gain>
+                <i_max>5.0</i_max>
+                <i_min>-5.0</i_min>
+                <cmd_max>500.0</cmd_max>
+                <cmd_min>-500.0</cmd_min>
+                <cmd_offset>0.0</cmd_offset>
+                <dead_zone>0.001</dead_zone>
+                <use_velocity_commands>false</use_velocity_commands>
+            </plugin>
+
+            <plugin filename="mimic-joint-system" name="ign_ros2_control::MimicJointSystem">
+                <joint_name>left_inner_knuckle_joint</joint_name>
+                <mimic_joint_name>finger_joint</mimic_joint_name>
+                <multiplier>1.0</multiplier>
+                <offset>0.0</offset>
+                <joint_index>0</joint_index>
+                <mimic_joint_index>0</mimic_joint_index>
+                <p_gain>100.0</p_gain>
+                <i_gain>0.1</i_gain>
+                <d_gain>0.0</d_gain>
+                <i_max>5.0</i_max>
+                <i_min>-5.0</i_min>
+                <cmd_max>500.0</cmd_max>
+                <cmd_min>-500.0</cmd_min>
+                <cmd_offset>0.0</cmd_offset>
+                <dead_zone>0.001</dead_zone>
+                <use_velocity_commands>false</use_velocity_commands>
+            </plugin>
+
+            <plugin filename="mimic-joint-system" name="ign_ros2_control::MimicJointSystem">
+                <joint_name>right_inner_knuckle_joint</joint_name>
+                <mimic_joint_name>finger_joint</mimic_joint_name>
+                <multiplier>1.0</multiplier>
+                <offset>0.0</offset>
+                <joint_index>0</joint_index>
+                <mimic_joint_index>0</mimic_joint_index>
+                <p_gain>100.0</p_gain>
+                <i_gain>0.1</i_gain>
+                <d_gain>0.0</d_gain>
+                <i_max>5.0</i_max>
+                <i_min>-5.0</i_min>
+                <cmd_max>500.0</cmd_max>
+                <cmd_min>-500.0</cmd_min>
+                <cmd_offset>0.0</cmd_offset>
+                <dead_zone>0.001</dead_zone>
+                <use_velocity_commands>false</use_velocity_commands>
+            </plugin>
+
+            <plugin filename="mimic-joint-system" name="ign_ros2_control::MimicJointSystem">
+                <joint_name>left_inner_finger_joint</joint_name>
+                <mimic_joint_name>finger_joint</mimic_joint_name>
+                <multiplier>-1.0</multiplier>
+                <offset>0.0</offset>
+                <joint_index>0</joint_index>
+                <mimic_joint_index>0</mimic_joint_index>
+                <p_gain>100.0</p_gain>
+                <i_gain>0.1</i_gain>
+                <d_gain>0.0</d_gain>
+                <i_max>1.0</i_max>
+                <i_min>-1.0</i_min>
+                <cmd_max>500.0</cmd_max>
+                <cmd_min>-500.0</cmd_min>
+                <cmd_offset>0.0</cmd_offset>
+                <dead_zone>0.001</dead_zone>
+                <use_velocity_commands>false</use_velocity_commands>
+            </plugin>
+
+            <plugin filename="mimic-joint-system" name="ign_ros2_control::MimicJointSystem">
+                <joint_name>right_inner_finger_joint</joint_name>
+                <mimic_joint_name>finger_joint</mimic_joint_name>
+                <multiplier>-1.0</multiplier>
+                <offset>0.0</offset>
+                <joint_index>0</joint_index>
+                <mimic_joint_index>0</mimic_joint_index>
+                <p_gain>100.0</p_gain>
+                <i_gain>0.1</i_gain>
+                <d_gain>0.0</d_gain>
+                <i_max>5.0</i_max>
+                <i_min>-5.0</i_min>
+                <cmd_max>500.0</cmd_max>
+                <cmd_min>-500.0</cmd_min>
+                <cmd_offset>0.0</cmd_offset>
+                <dead_zone>0.001</dead_zone>
+                <use_velocity_commands>false</use_velocity_commands>
+            </plugin>
+
+            <!-- for test -->
+<!--            <plugin-->
+<!--                    filename="ignition-gazebo-joint-position-controller-system"-->
+<!--                    name="ignition::gazebo::systems::JointPositionController">-->
+<!--                <joint_name>finger_joint</joint_name>-->
+<!--                <topic>rotor_cmd</topic>-->
+<!--                <p_gain>50.0</p_gain>-->
+<!--                <i_gain>0.1</i_gain>-->
+<!--                <d_gain>0.0</d_gain>-->
+<!--                <i_max>1</i_max>-->
+<!--                <i_min>-1</i_min>-->
+<!--                <cmd_max>1000</cmd_max>-->
+<!--                <cmd_min>-1000</cmd_min>-->
+<!--            </plugin>-->
+
         </gazebo>
     </xacro:if>
 
