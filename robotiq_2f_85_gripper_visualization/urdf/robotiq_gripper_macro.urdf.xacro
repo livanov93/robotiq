@@ -7,7 +7,8 @@
         *origin
         sim_ignition:=false
         use_fake_hardware:=false
-        fake_sensor_commands:=false">
+        fake_sensor_commands:=false
+        force_abs_paths:=false" >
 
     <!-- Import macros -->
     <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model_macro.xacro" />
@@ -19,7 +20,7 @@
       <xacro:insert_block name="origin" />
     </joint>
 
-    <xacro:robotiq_arg2f_85 prefix="$(arg prefix)"/>
+    <xacro:robotiq_arg2f_85 prefix="$(arg prefix)" force_abs_paths="${force_abs_paths}"/>
 
     <xacro:robotiq_sim_gripper_ros2_control name="RobotiqGripperSystem"
                                             prefix="${prefix}"

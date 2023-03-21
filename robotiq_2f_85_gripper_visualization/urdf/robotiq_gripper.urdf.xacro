@@ -5,6 +5,7 @@
     <xacro:arg name="fake_sensor_commands" default="false" />
     <xacro:arg name="prefix" default="" />
     <xacro:arg name="sim_ignition" default="false" />
+    <xacro:arg name="force_abs_path" default="false" />
 
 
     <!-- Import macros -->
@@ -18,7 +19,7 @@
         <child link="$(arg prefix)robotiq_arg2f_base_link"/>
     </joint>
 
-    <xacro:robotiq_arg2f_85 prefix="$(arg prefix)"/>
+    <xacro:robotiq_arg2f_85 prefix="$(arg prefix)" force_abs_paths="$(arg force_abs_paths)"/>
 
     <xacro:robotiq_sim_gripper_ros2_control name="RobotiqGripperSystem"
                                             prefix="$(arg prefix)"

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="robotiq_arg2f_base_link" params="prefix">
+  <xacro:macro name="robotiq_arg2f_base_link" params="prefix force_abs_paths:=false">
     <link name="${prefix}robotiq_arg2f_base_link">
       <inertial>
         <origin xyz="8.625E-08 -4.6583E-06 0.03145" rpy="0 0 0" />
@@ -10,7 +10,12 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://robotiq_2f_85_gripper_visualization/meshes/visual/robotiq_arg2f_85_base_link.dae" />
+          <xacro:if value="${force_abs_paths}">
+            <mesh filename="file://$(find robotiq_2f_85_gripper_visualization)/meshes/visual/robotiq_arg2f_85_base_link.dae" />
+          </xacro:if>
+          <xacro:unless value="${force_abs_paths}">
+            <mesh filename="package://robotiq_2f_85_gripper_visualization/meshes/visual/robotiq_arg2f_85_base_link.dae" />
+          </xacro:unless>
         </geometry>
         <material name="">
           <color rgba="0.1 0.1 0.1 1" />
@@ -19,7 +24,12 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-           <mesh filename="package://robotiq_2f_85_gripper_visualization/meshes/collision/robotiq_arg2f_base_link.stl" />
+          <xacro:if value="${force_abs_paths}">
+            <mesh filename="file://$(find robotiq_2f_85_gripper_visualization)/meshes/collision/robotiq_arg2f_base_link.stl" />
+          </xacro:if>
+          <xacro:unless value="${force_abs_paths}">
+            <mesh filename="package://robotiq_2f_85_gripper_visualization/meshes/collision/robotiq_arg2f_base_link.stl" />
+          </xacro:unless>
         </geometry>
       </collision>
     </link>
@@ -32,11 +42,11 @@
     <xacro:inner_finger_pad_joint prefix="${prefix}" fingerprefix="${fingerprefix}"/>
   </xacro:macro>
 
-  <xacro:macro name="finger_links" params="prefix fingerprefix stroke">
-    <xacro:outer_knuckle prefix="${prefix}" fingerprefix="${fingerprefix}" stroke="${stroke}"/>
-    <xacro:outer_finger prefix="${prefix}" fingerprefix="${fingerprefix}" stroke="${stroke}"/>
-    <xacro:inner_finger prefix="${prefix}" fingerprefix="${fingerprefix}" stroke="${stroke}"/>
-    <xacro:inner_finger_pad prefix="${prefix}" fingerprefix="${fingerprefix}"/>
-    <xacro:inner_knuckle prefix="${prefix}" fingerprefix="${fingerprefix}" stroke="${stroke}"/>
+  <xacro:macro name="finger_links" params="prefix fingerprefix stroke force_abs_paths:=false">
+    <xacro:outer_knuckle prefix="${prefix}" fingerprefix="${fingerprefix}" stroke="${stroke}" force_abs_paths="${force_abs_paths}"/>
+    <xacro:outer_finger prefix="${prefix}" fingerprefix="${fingerprefix}" stroke="${stroke}" force_abs_paths="${force_abs_paths}"/>
+    <xacro:inner_finger prefix="${prefix}" fingerprefix="${fingerprefix}" stroke="${stroke}" force_abs_paths="${force_abs_paths}"/>
+    <xacro:inner_finger_pad prefix="${prefix}" fingerprefix="${fingerprefix}" force_abs_paths="${force_abs_paths}"/>
+    <xacro:inner_knuckle prefix="${prefix}" fingerprefix="${fingerprefix}" stroke="${stroke}" force_abs_paths="${force_abs_paths}"/>
   </xacro:macro>
 </robot>
